@@ -64,31 +64,67 @@ import PropTypes from "prop-types";
 
 /******************************** End Part One*****************************************************/
 
-
 /******************************** Part Two *****************************************************/
 
+// class App extends React.Component {
+
+//   state = {
+//     count: 0
+//   };
+
+// add = () => {
+// this.setState({count: this.state.count + 1});
+//   this.setState(current =>({count: current.count + 1}));
+// }
+
+// minus = () => {
+//   this.setState(current =>({count: current.count - 1}));
+// }
+
+// componentDidMount(){
+//   console.log('Компонент смонтирован...');
+// }
+
+// componentDidUpdate(){
+//   console.log('Компонент обновился!');
+// }
+
+// componentWillUnmount(){
+//   console.log('Компонент умер :/');
+// }
+
+//   render() {
+//     console.log('Я рендерюсь!');
+//     return <div>
+//       <h1>Текущее число: {this.state.count}</h1>
+//       <button onClick={this.add}>Плюс</button>
+//       <button onClick={this.minus}>Минус</button>
+//     </div>
+//   }
+// }
+
+// export default App;
+
+/******************************** End Part Two ***************************************************/
+
+/********************************* Part Three ***************************************************/
 
 class App extends React.Component {
 
   state = {
-    count: 0
+    isLoading: true,
+    movies: []
   };
 
-add = () => {
-  // this.setState({count: this.state.count + 1});
-  this.setState(current =>({count: current.count + 1}));
-}
-
-minus = () => {
-  this.setState(current =>({count: current.count - 1}));
-}
+  componentDidMount(){
+    setTimeout(() =>{this.setState({isLoading: false})}, 6000);
+  }
 
   render() {
+    const {isLoading} = this.state;
     return <div>
-      <h1>Текущее число: {this.state.count}</h1>
-      <button onClick={this.add}>Плюс</button>
-      <button onClick={this.minus}>Минус</button>
-    </div>
+      {isLoading ? 'Загружается...': 'Страница загружена!'}
+      </div>
   }
 }
 
